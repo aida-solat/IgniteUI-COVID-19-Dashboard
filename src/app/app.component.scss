@@ -1,0 +1,27 @@
+@import "themes/vars";
+
+::ng-deep {
+  .app {
+    height: 100%;
+    overflow: hidden;
+  }
+  .app-dark-theme,
+  .app-light-theme{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    @include media("<=desktop") {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  }
+
+  .app__logo {
+    height: 30px;
+    width:100px;
+    margin-top: 5px;
+  }
+}
+
+

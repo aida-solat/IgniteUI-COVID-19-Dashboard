@@ -1,0 +1,138 @@
+@import "../themes/vars";
+::ng-deep {
+  .app__map-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: 1;
+    @include media("<=desktop") {
+      height: auto;
+    }
+  }
+
+  .app__map-button-group {
+    margin-bottom: 8px;
+  }
+
+  .igx-button-group {
+    min-width: 0
+  }
+
+  .app__map-tooltip {
+    position: relative;
+    h1 {
+      font-size: 18px;
+    }
+
+    h2 {
+      font-size: 16px;
+    }
+
+    h1,h2 {
+      font-weight:bold;
+      letter-spacing: 1px;
+      line-height: normal;
+      margin: 0;
+      position: relative;
+      z-index: 1
+    }
+
+    &:after {
+      content:'';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: calc(100% + 20px);
+      height: calc(100% + 20px);
+      border-radius:8px;
+      z-index: 0;
+      box-shadow: 0 3px 5px -1px igx-color($app-palette, 'grays', 400),
+      0 6px 10px 0 igx-color($app-palette, 'grays', 300),
+      0 1px 18px 0 igx-color($app-palette, 'grays', 200);
+    }
+  }
+
+  .app__map-tooltip-list {
+    padding: 0;
+
+    li {
+      position: relative;
+      z-index: 1;
+      font-size: 14px;
+    }
+  }
+
+  .infected {
+    span {
+      font-weight: bold;
+      color: map-get($light-vars, confirmed-color);
+    }
+  }
+
+  .deaths {
+    span {
+      font-weight: bold;
+      color: igx-color($app-palette, 'error')
+    }
+  }
+
+  .app-light-theme {
+    .app__map-tooltip {
+      &:after {
+        background: map-get($light-vars, tooltip-bg);
+      }
+    }
+  }
+
+  .app-dark-theme {
+    .app__map-tooltip {
+      &:after {
+        background: map-get($dark-vars, tooltip-bg);
+      }
+      h1,h2 {
+        color: #fff;
+      }
+    }
+
+    .app__map-tooltip-list-date {
+      color: igx-color($app-palette, 'grays', 500);
+    }
+
+    .infected {
+      span {
+        font-weight: bold;
+        color: map-get($dark-vars, confirmed-color);
+      }
+    }
+    .deaths {
+      span {
+        font-weight: bold;
+        color: map-get($dark-vars, deaths-color);
+      }
+    }
+  }
+}
+
+.app__map {
+  min-height: calc(100% - 44px);
+  min-width: 100%;
+  height: calc(100% - 44px);
+  border-radius: 8px;
+}
+
+.app__map-inner {
+  display: flex;
+  height: 100%;
+  padding: 0 5px;
+  flex-direction: column;
+
+  @include media("<=desktop") {
+    padding: 0;
+  }
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,25 @@
+<igx-card class="app__list-holder">
+  <igx-card-header class="app__card-header app__card-header--info">
+    <h5 igxCardHeaderSubtitle>Total {{ type }}</h5>
+    <h3 igxCardHeaderTitle>{{ totalCases | number}}</h3>
+  </igx-card-header>
+  <igx-divider></igx-divider>
+  <igx-card-content class="app__card-content">
+      <igx-list [displayDensity]="'cosy'" class="app__list-inner">
+        <igx-list-item #item *ngFor="let item of listSortedData" (click)="onListItemClicked(item)">
+
+          <span igxListLineTitle *ngIf="item.region && item.country !== item.region; else country">{{ item.region }}, {{ item.country }}</span>
+          <ng-template #country>
+              <span igxListLineTitle>{{ item.country }}</span>
+          </ng-template>
+
+          <span igxListAction>{{ item.value | number }}</span>
+        </igx-list-item>
+        <ng-template igxEmptyList>
+          <div class="app__loader">
+            <igx-circular-bar [indeterminate]="true"></igx-circular-bar>
+          </div>
+      </ng-template>
+      </igx-list>
+  </igx-card-content>
+</igx-card>

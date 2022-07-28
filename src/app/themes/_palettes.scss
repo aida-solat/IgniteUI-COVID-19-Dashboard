@@ -1,0 +1,24 @@
+// Light palette
+$primary: #3E3972 !default;
+$secondary: #3E3972 !default;
+$app-palette: igx-palette($primary, $secondary);
+
+// Dark palette
+$dark-primary: #26334f;
+$dark-secondary: #09f;
+$dark-surface: #151c2c;
+$dark-grays: #fff;
+$dark-danger: #FF8A90;
+$dark-warn: #F05A2B;
+$dark-success: #5FBF70;
+$dark-info: #47B6FF;
+$app-dark-palette: igx-palette(
+  $primary: $dark-primary,
+  $secondary: $dark-secondary,
+  $grays: $dark-grays,
+  $surface: $dark-surface,
+  $error: $dark-danger,
+  $success: $dark-success,
+  $info: $dark-info,
+  $warn: $dark-warn
+);
